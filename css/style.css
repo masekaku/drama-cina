@@ -1,52 +1,58 @@
+/* Font dan Reset */
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #111;
   color: #fff;
+  line-height: 1.6;
 }
 
+/* Header */
 header {
   padding: 0.5rem 1rem;
   background-color: #ff6b00;
   color: white;
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
-@media (max-width: 600px) {
-  header {
-    font-size: 1rem;
-    padding: 0.5rem;
-  }
-}
-
+/* Daftar Drama dan Episode */
 .drama-list, .episode-list {
   padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
 }
 
 .drama-item, .episode-button {
-  background-color: #1c1c1c;
-  border: 1px solid #ff6b00;
+  background-color: #222;
+  border: 1px solid #444;
   padding: 0.5rem;
   text-align: center;
   cursor: pointer;
   border-radius: 8px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .drama-item:hover, .episode-button:hover {
-  background-color: #2a2a2a;
+  background-color: #ff6b00;
+  color: #000;
+  transform: scale(1.03);
 }
 
+/* Video Container */
 .video-container {
   padding: 1rem;
   text-align: center;
 }
 
+video {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Safelink Modal */
 .safelink-modal {
   position: fixed;
   top: 0; left: 0;
@@ -68,22 +74,39 @@ header {
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
-  max-width: 320px;
+  width: 320px;
+  max-width: 90%;
+}
+
+.safelink-ad {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .safelink-ad iframe {
+  border: none;
   width: 300px;
   height: 250px;
-  border: 0;
 }
 
-@media (max-width: 400px) {
+/* Responsif */
+@media (max-width: 600px) {
+  .drama-item, .episode-button {
+    font-size: 0.85rem;
+    padding: 0.4rem;
+  }
+
+  header {
+    font-size: 1rem;
+  }
+
   .safelink-box {
-    transform: scale(0.9);
+    width: 90%;
   }
 
   .safelink-ad iframe {
-    width: 250px;
-    height: 200px;
+    width: 100%;
+    height: auto;
   }
 }
