@@ -1,23 +1,57 @@
 {
   "dramas": [
     {
-      "id": "takbir-cinta",
-      "title": "Takbir di Balik Cinta",
-      "source": "quax",
+      "id": "drama1",
+      "title": "Contoh Drama Cina",
       "episodes": [
-        { "id": "abc123" },
-        { "id": "def456" },
-        { "id": "ghi789" }
-      ]
-    },
-    {
-      "id": "mata-hati",
-      "title": "Mata Hati",
-      "source": "videy",
-      "episodes": [
-        { "id": "vid001" },
-        { "id": "vid002" },
-        { "id": "vid003" }
+        {
+          "id": "ep01",
+          "encrypted": "{\"iv\": \"nVovezLFDAMY6d6bcLv71Q==\", \"data\": \"2LezAHWE6YB2N45vSi2nqeKv+8oEePDbVIKy2N37TI0=\"}"
+        },
+        {
+          "id": "ep02",
+          "encrypted": "{\"iv\": \"y8O099XcDYoH5uvr7odjIA==\", \"data\": \"W8Q0T6YCeSSasHI9g7rrmGmAT3mnK02Ao47H2QckD1I=\"}"
+        },
+        {
+          "id": "ep03",
+          "encrypted": "{\"iv\": \"CAVkA5sqQnPZ0PuxB9pTyQ==\", \"data\": \"Zcy4S3UbULLqmHJeyiZmQBxP4Wq6dx3A5XdCtiYShek=\"}"
+        },
+        {
+          "id": "ep04",
+          "encrypted": "{\"iv\": \"jHV7s3fQF4D3TL1siYPbpg==\", \"data\": \"GrKg4DVrqEBdzmUz1TtCMmhD6CbvGc4cenXBjG43wd8=\"}"
+        },
+        {
+          "id": "ep05",
+          "encrypted": "{\"iv\": \"oUbCMxiuZ23h0dReF1GfBQ==\", \"data\": \"xWiHFnShd+fPh9WBn24UZNHfnzmS0JDcS+J/mKrRiWM=\"}"
+        },
+        {
+          "id": "ep06",
+          "encrypted": "{\"iv\": \"IbJhquQDAISDS5t80Q+XDw==\", \"data\": \"fOrqDQeR8t4m5Iidr15yAUWOixlbgQDUJ/4BH0wOZpA=\"}"
+        },
+        {
+          "id": "ep07",
+          "encrypted": "{\"iv\": \"1SyzpqcNYSjjVrL6YkQCzQ==\", \"data\": \"osGfQg9gbkqVOhJ6XfctaQdxQ/1atJWzYvlsFi6IfMk=\"}"
+        },
+        {
+          "id": "ep08",
+          "encrypted": "{\"iv\": \"dQkxWjCRcavGcH/FtL/RNg==\", \"data\": \"e8y9D9H8XmJu7TJWKrZr8HgtnBmoSmAZ0zELFbp4Dm0=\"}"
+        },
+        {
+          "id": "ep09",
+          "encrypted": "{\"iv\": \"+xEznvLu+0sFnFKQhxCYKw==\", \"data\": \"fhEfLgwxCONfYblWGtNG8bBLVWRQ3YTN4DTji+SyVH4=\"}"
+        },
+        {
+          "id": "ep10",
+          "encrypted": "{\"iv\": \"Nwwm03W7tln3OkU9jlfP5g==\", \"data\": \"6zRb+7RTgX6qMhflYaCEFaNpAxaS2SqQtZBy2ihheaY=\"}"
+        },
+        {
+          "id": "ep11",
+          "encrypted": "{\"iv\": \"at69JmCkCL4vvMSw+D1hZw==\", \"data\": \"CwNHDHZSVtpjM2kmG7pEI5EY95W3WEIqUDPyV3LscaY=\"}"
+        },
+        {
+          "id": "ep12",
+          "encrypted": "{\"iv\": \"nyTN57dMRiCMFzwIIwuFTg==\", \"data\": \"VDLeUdeRCySppvoldeF6g395HedrkmOD53K03oH3bIM=\"}"
+        }
       ]
     }
   ]
