@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  fetch('./data/drama-detail.json')
+  fetch('/data/drama-detail.json')
     .then(response => {
       if (!response.ok) {
         throw new Error('Gagal mengambil data JSON');
