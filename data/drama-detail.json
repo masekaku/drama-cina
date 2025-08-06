@@ -1,22 +1,20 @@
 {
-  "dramas": [
-    {
-      "id": "drama1",
-      "title": "Judul Drama A",
-      "episodes": [
-        { "id": "ep1", "title": "Episode 1" },
-        { "id": "ep2", "title": "Episode 2" },
-        { "id": "ep3", "title": "Episode 3" },
-        { "id": "ep4", "title": "Episode 4" },
-        { "id": "ep5", "title": "Episode 5" },
-        { "id": "ep6", "title": "Episode 6" },
-        { "id": "ep7", "title": "Episode 7" },
-        { "id": "ep8", "title": "Episode 8" },
-        { "id": "ep9", "title": "Episode 9" },
-        { "id": "ep10", "title": "Episode 10" },
-        { "id": "ep11", "title": "Episode 11" },
-        { "id": "ep12", "title": "Episode 12" }
-      ]
-    }
-  ]
+  "drama-001": {
+    "title": "Legend of Awakening",
+    "description": "A story of young heroes in a fantasy world.",
+    "episodes": [
+      { "id": "ep1", "title": "Episode 1" },
+      { "id": "ep2", "title": "Episode 2" },
+      { "id": "ep3", "title": "Episode 3" }
+    ]
+  },
+  "drama-002": {
+    "title": "The Untamed",
+    "description": "Two soulmates fight evil spirits and uncover a dark conspiracy.",
+    "episodes": [
+      { "id": "ep1", "title": "Episode 1" },
+      { "id": "ep2", "title": "Episode 2" },
+      { "id": "ep3", "title": "Episode 3" }
+    ]
+  }
 }
