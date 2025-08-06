@@ -45,42 +45,45 @@ video {
 }
 
 .drama-list {
-  padding: 1rem;
+  padding: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
   justify-items: center;
 }
 
 .drama-item {
   background-color: #1a1a1a;
   border: 2px solid #ff6b00;
-  border-radius: 10px;
+  border-radius: 16px;
   overflow: hidden;
   text-align: center;
   color: white;
-  width: 160px;
-  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2);
+  width: 100%;
+  max-width: 220px;
+  box-shadow: 0 6px 16px rgba(255, 107, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .drama-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(255, 107, 0, 0.4);
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 10px 20px rgba(255, 107, 0, 0.5);
 }
 
 .drama-item img {
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
   display: block;
 }
 
 .drama-item-title {
-  padding: 0.5rem;
+  padding: 1rem 0.75rem;
   font-weight: bold;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: #ffa500;
+  text-shadow: 1px 1px 2px black;
 }
 
 /* Episode List */
