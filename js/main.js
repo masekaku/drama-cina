@@ -1,24 +1,25 @@
-// main.js
+document.addEventListener("DOMContentLoaded", function () {
+  const dramaListContainer = document.getElementById("drama-list");
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetch('data/drama-list.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.querySelector('.drama-list');
-      data.forEach(drama => {
-        const card = document.createElement('div');
-        card.className = 'drama-card';
+  fetch("data/drama-list.json")
+    .then((response) => response.json())
+    .then((dramas) => {
+      dramas.forEach((drama) => {
+        const card = document.createElement("div");
+        card.className = "drama-card";
         card.innerHTML = `
-          <img src="${drama.thumbnail}" alt="${drama.title}">
-          <h3>${drama.title}</h3>
+          <img src="${drama.thumbnail}" alt="${drama.title}" loading="lazy">
+          <div class="drama-info">
+            <h3>${drama.title}</h3>
+            <p>${drama.description}</p>
+            <a href="drama.html?id=${drama.id}" class="watch-button">Lihat Drama</a>
+          </div>
         `;
-        card.addEventListener('click', () => {
-          window.location.href = `drama.html?id=${encodeURIComponent(drama.id)}`;
-        });
-        container.appendChild(card);
+        dramaListContainer.appendChild(card);
       });
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Gagal memuat daftar drama:", error);
+      dramaListContainer.innerHTML = "<p>Gagal memuat drama. Silakan coba lagi nanti.</p>";
     });
 });
