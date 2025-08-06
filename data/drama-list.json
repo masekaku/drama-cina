@@ -3,17 +3,17 @@
     {
       "id": "takbir-cinta",
       "title": "Takbir di Balik Cinta",
-      "thumbnail": "https://via.placeholder.com/300x400?text=Takbir+Cinta"
+      "thumbnail": "/images/takbir.jpg"
     },
     {
-      "id": "putri-langit",
-      "title": "Putri dari Langit",
-      "thumbnail": "https://via.placeholder.com/300x400?text=Putri+Langit"
+      "id": "pelangi-rasa",
+      "title": "Pelangi Rasa",
+      "thumbnail": "/images/pelangi.jpg"
     },
     {
-      "id": "pengawal-rahasia",
-      "title": "Pengawal Rahasia Kekaisaran",
-      "thumbnail": "https://via.placeholder.com/300x400?text=Pengawal+Rahasia"
+      "id": "bayangan-hati",
+      "title": "Bayangan Hati",
+      "thumbnail": "/images/bayangan.jpg"
     }
   ]
 }
