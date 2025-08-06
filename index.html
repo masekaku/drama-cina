@@ -3,27 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drama China Terbaru</title>
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <title>Drama Cina - Index</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header>
-    <h1>Drama China Terbaru</h1>
+    <h1>Drama Cina</h1>
   </header>
 
   <main>
-    <section class="episode-list">
-      <ul id="dramaList"></ul>
+    <section class="drama-list" id="dramaListContainer">
+      <p>Memuat daftar drama...</p>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 DramaChinaStream</p>
-  </footer>
+  <!-- Safelink Modal -->
+  <div id="safelinkModal" class="safelink-modal hidden">
+    <div class="safelink-box">
+      <p>Tunggu <span id="safelinkCountdown">5</span> detik...</p>
+      <div class="safelink-ad">
+        <!-- Iklan 300x250 -->
+        <iframe src="https://masekaku.github.io/apa-itu-2025/" width="300" height="250" style="border:0;" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
 
-  <script src="./js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
