@@ -1,22 +1,18 @@
-// js/drama.js
+// drama.js
 document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(window.location.search);
   const dramaId = params.get('id');
 
-  const titleElement = document.getElementById('dramaTitle');
-  const videoElement = document.getElementById('mainVideo');
-  const loadingMessage = document.getElementById('loadingMessage');
-  const episodeList = document.getElementById('episodeItems');
-
   if (!dramaId) {
-    titleElement.textContent = 'Drama tidak ditemukan';
+    document.getElementById('dramaTitle').textContent = 'Drama tidak ditemukan';
     return;
   }
 
+  // Pastikan path sesuai, gunakan path absolut dari root
   fetch('/data/drama-detail.json')
     .then(response => {
       if (!response.ok) {
-        throw new Error('Gagal mengambil data JSON');
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
       return response.json();
     })
@@ -24,28 +20,35 @@ document.addEventListener('DOMContentLoaded', function () {
       const drama = data.dramas.find(d => d.id === dramaId);
 
       if (!drama) {
-        titleElement.textContent = 'Drama tidak ditemukan';
+        document.getElementById('dramaTitle').textContent = 'Drama tidak ditemukan';
         return;
       }
 
-      titleElement.textContent = drama.title;
+      // Tampilkan judul drama
+      document.getElementById('dramaTitle').textContent = drama.title;
+
+      const mainVideo = document.getElementById('mainVideo');
+      const loadingMessage = document.getElementById('loadingMessage');
 
       if (drama.episodes && drama.episodes.length > 0) {
-        const firstEpisode = drama.episodes[0];
-        const videoUrl = drama.source + firstEpisode.id + '.mp4';
+        const firstEpisodeId = drama.episodes[0].id;
+        const videoUrl = drama.source + firstEpisodeId + '.mp4';
 
-        videoElement.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
-        videoElement.load();
+        // Muat episode pertama
+        mainVideo.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
+        mainVideo.load();
         loadingMessage.style.display = 'none';
 
+        // Daftar episode
+        const episodeList = document.getElementById('episodeItems');
         drama.episodes.forEach((ep, idx) => {
           const li = document.createElement('li');
           const btn = document.createElement('button');
           btn.textContent = String(idx + 1).padStart(2, '0');
           btn.onclick = () => {
             const newUrl = drama.source + ep.id + '.mp4';
-            videoElement.querySelector('source').src = newUrl;
-            videoElement.load();
+            mainVideo.querySelector('source').src = newUrl;
+            mainVideo.load();
           };
           li.appendChild(btn);
           episodeList.appendChild(li);
@@ -54,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
         loadingMessage.textContent = 'Episode tidak tersedia';
       }
     })
-    .catch(error => {
-      console.error('Gagal memuat detail drama:', error);
-      titleElement.textContent = 'Gagal memuat detail drama';
+    .catch(err => {
+      console.error('Gagal memuat detail drama:', err);
+      document.getElementById('dramaTitle').textContent = 'Gagal memuat detail drama';
     });
 });
