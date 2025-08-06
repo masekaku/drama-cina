@@ -1,19 +1,24 @@
 {
   "dramas": [
     {
-      "id": "takbir-cinta",
-      "title": "Takbir di Balik Cinta",
-      "thumbnail": "/images/takbir.jpg"
+      "id": "falling_into_your_smile",
+      "title": "Falling Into Your Smile"
     },
     {
-      "id": "pelangi-rasa",
-      "title": "Pelangi Rasa",
-      "thumbnail": "/images/pelangi.jpg"
+      "id": "go_go_squid",
+      "title": "Go Go Squid!"
     },
     {
-      "id": "bayangan-hati",
-      "title": "Bayangan Hati",
-      "thumbnail": "/images/bayangan.jpg"
+      "id": "love_between_fairy_and_devil",
+      "title": "Love Between Fairy and Devil"
+    },
+    {
+      "id": "the_rising_dragon",
+      "title": "The Rising Dragon"
+    },
+    {
+      "id": "legend_of_white_snake",
+      "title": "Legend of the White Snake"
     }
   ]
 }
