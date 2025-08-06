@@ -1,6 +1,42 @@
-// drama.js
+// js/drama.js
+const SECRET_KEY = 'a5a10fa4e4724c768b51297b4dd3a69d'; // HARUS sama dengan Python
 
-document.addEventListener('DOMContentLoaded', function () {
+function base64ToArrayBuffer(base64) {
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return bytes.buffer;
+}
+
+async function getKey(secret) {
+  const enc = new TextEncoder();
+  const keyData = enc.encode(secret);
+  return await crypto.subtle.importKey(
+    'raw',
+    keyData,
+    { name: 'AES-CBC' },
+    false,
+    ['decrypt']
+  );
+}
+
+async function decryptVideoUrl(encryptedData, secret) {
+  const json = JSON.parse(encryptedData);
+  const key = await getKey(secret);
+  const iv = base64ToArrayBuffer(json.iv);
+  const data = base64ToArrayBuffer(json.data);
+  const decrypted = await crypto.subtle.decrypt(
+    { name: 'AES-CBC', iv },
+    key,
+    data
+  );
+  const dec = new TextDecoder();
+  return dec.decode(decrypted);
+}
+
+document.addEventListener('DOMContentLoaded', async function () {
   const params = new URLSearchParams(window.location.search);
   const dramaId = params.get('id');
 
@@ -9,57 +45,54 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  fetch('./data/drama-detail.json')
-    .then(response => response.json())
-    .then(data => {
-      const drama = data.dramas.find(d => d.id === dramaId);
+  try {
+    const response = await fetch('./data/drama-detail.json');
+    const data = await response.json();
+    const drama = data.dramas.find(d => d.id === dramaId);
 
-      if (!drama) {
-        document.getElementById('dramaTitle').textContent = 'Drama tidak ditemukan';
-        return;
-      }
+    if (!drama) {
+      document.getElementById('dramaTitle').textContent = 'Drama tidak ditemukan';
+      return;
+    }
 
-      const baseUrls = {
-        videy: 'https://cdn.videy.co/',
-        quax: 'https://qu.ax/'
-      };
+    document.getElementById('dramaTitle').textContent = drama.title;
 
-      document.getElementById('dramaTitle').textContent = drama.title;
+    const mainVideo = document.getElementById('mainVideo');
+    const loadingMessage = document.getElementById('loadingMessage');
+    const episodeList = document.getElementById('episodeItems');
 
-      const mainVideo = document.getElementById('mainVideo');
-      const loadingMessage = document.getElementById('loadingMessage');
+    if (drama.episodes && drama.episodes.length > 0) {
+      // Tampilkan episode list
+      drama.episodes.forEach((ep, idx) => {
+        const li = document.createElement('li');
+        const btn = document.createElement('button');
+        btn.textContent = String(idx + 1).padStart(2, '0');
+        btn.onclick = async () => {
+          loadingMessage.style.display = 'block';
+          mainVideo.pause();
 
-      if (drama.episodes && drama.episodes.length > 0) {
-        // Load episode pertama
-        loadEpisode(drama.episodes[0].id);
+          const decryptedUrl = await decryptVideoUrl(ep.encrypted, SECRET_KEY);
 
-        // Tampilkan daftar episode
-        const episodeList = document.getElementById('episodeItems');
-        drama.episodes.forEach((ep, idx) => {
-          const li = document.createElement('li');
-          const btn = document.createElement('button');
-          btn.textContent = String(idx + 1).padStart(2, '0');
-          btn.onclick = () => {
-            loadEpisode(ep.id);
-          };
-          li.appendChild(btn);
-          episodeList.appendChild(li);
-        });
-      } else {
-        loadingMessage.textContent = 'Episode tidak tersedia';
-      }
+          mainVideo.innerHTML = `<source src="${decryptedUrl}" type="video/mp4">`;
+          mainVideo.load();
+          mainVideo.play();
+          loadingMessage.style.display = 'none';
+        };
+        li.appendChild(btn);
+        episodeList.appendChild(li);
+      });
 
-      function loadEpisode(episodeId) {
-        const sourceBase = baseUrls[drama.source] || baseUrls.videy;
-        const videoUrl = sourceBase + episodeId + ".mp4";
-
-        mainVideo.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
-        mainVideo.load();
-        loadingMessage.style.display = 'none';
-      }
-    })
-    .catch(err => {
-      console.error('Gagal memuat detail drama:', err);
-      document.getElementById('dramaTitle').textContent = 'Gagal memuat detail drama';
-    });
+      // Otomatis mainkan episode pertama
+      const firstEpisodeUrl = await decryptVideoUrl(drama.episodes[0].encrypted, SECRET_KEY);
+      mainVideo.innerHTML = `<source src="${firstEpisodeUrl}" type="video/mp4">`;
+      mainVideo.load();
+      mainVideo.play();
+      loadingMessage.style.display = 'none';
+    } else {
+      loadingMessage.textContent = 'Episode tidak tersedia';
+    }
+  } catch (err) {
+    console.error('Gagal memuat detail drama:', err);
+    document.getElementById('dramaTitle').textContent = 'Gagal memuat detail drama';
+  }
 });
