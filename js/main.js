@@ -1,25 +1,39 @@
-// js/main.js
-document.addEventListener("DOMContentLoaded", function () {
-  const dramaListEl = document.getElementById("dramaList");
+document.addEventListener('DOMContentLoaded', function () {
+  const dramaListContainer = document.getElementById('dramaList');
 
-  fetch("./data/drama-list.json")
-    .then((res) => res.json())
-    .then((data) => {
-      data.dramas.forEach((drama) => {
-        const card = document.createElement("div");
-        card.className = "drama-card";
-        card.innerHTML = `
-          <img src="${drama.thumbnail}" alt="${drama.title}" />
-          <h3>${drama.title}</h3>
-        `;
-        card.addEventListener("click", () => {
-          window.location.href = `drama.html?id=${encodeURIComponent(drama.id)}`;
-        });
-        dramaListEl.appendChild(card);
+  fetch('./data/drama-list.json')
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      if (!data.dramas || data.dramas.length === 0) {
+        dramaListContainer.innerHTML = '<p>Tidak ada drama tersedia.</p>';
+        return;
+      }
+
+      data.dramas.forEach(drama => {
+        const card = document.createElement('div');
+        card.className = 'drama-card';
+
+        const link = document.createElement('a');
+        link.href = `./drama.html?id=${encodeURIComponent(drama.id)}`;
+
+        const img = document.createElement('img');
+        img.src = drama.thumbnail || 'https://via.placeholder.com/300x450?text=No+Image';
+        img.alt = drama.title;
+
+        const title = document.createElement('h3');
+        title.textContent = drama.title;
+
+        link.appendChild(img);
+        link.appendChild(title);
+        card.appendChild(link);
+        dramaListContainer.appendChild(card);
       });
     })
-    .catch((error) => {
-      console.error("Gagal memuat daftar drama:", error);
-      dramaListEl.innerHTML = "<p>Gagal memuat daftar drama.</p>";
+    .catch(err => {
+      console.error('Gagal memuat daftar drama:', err);
+      dramaListContainer.innerHTML = '<p>Gagal memuat data drama.</p>';
     });
 });
