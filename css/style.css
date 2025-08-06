@@ -10,35 +10,13 @@ body {
 
 /* Header */
 header {
-  padding: 0.5rem 1rem;
-  background-color: #ff6b00;
-  color: white;
+  background-color: #000;
+  color: #ff6b00;
   text-align: center;
+  padding: 1rem 0 0.8rem 0;
   font-size: 1.2rem;
-}
-
-/* Daftar Drama dan Episode */
-.drama-list, .episode-list {
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-}
-
-.drama-item, .episode-button {
-  background-color: #222;
-  border: 1px solid #444;
-  padding: 0.5rem;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.drama-item:hover, .episode-button:hover {
-  background-color: #ff6b00;
-  color: #000;
-  transform: scale(1.03);
+  font-weight: bold;
+  border-bottom: 2px solid #ff6b00;
 }
 
 /* Video Container */
@@ -50,6 +28,36 @@ header {
 video {
   max-width: 100%;
   border-radius: 8px;
+  background-color: #222;
+}
+
+/* Episode List */
+.episode-list {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.episode-button {
+  background-color: #ff6b00;
+  color: #000;
+  font-weight: bold;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  font-size: 0.95rem;
+  min-width: 48px;
+  text-align: center;
+}
+
+.episode-button:hover {
+  background-color: #ffa94d;
+  transform: scale(1.05);
 }
 
 /* Safelink Modal */
@@ -90,15 +98,25 @@ video {
   height: 250px;
 }
 
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
 /* Responsif */
 @media (max-width: 600px) {
-  .drama-item, .episode-button {
-    font-size: 0.85rem;
-    padding: 0.4rem;
-  }
-
   header {
     font-size: 1rem;
+    padding: 0.8rem 0;
+  }
+
+  .episode-button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    min-width: 40px;
   }
 
   .safelink-box {
