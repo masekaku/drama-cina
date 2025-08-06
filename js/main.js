@@ -1,25 +1,47 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const dramaListContainer = document.getElementById("drama-list");
+document.addEventListener('DOMContentLoaded', () => {
+  const dramaListContainer = document.getElementById('drama-list');
 
-  fetch("data/drama-list.json")
-    .then((response) => response.json())
-    .then((dramas) => {
-      dramas.forEach((drama) => {
-        const card = document.createElement("div");
-        card.className = "drama-card";
-        card.innerHTML = `
-          <img src="${drama.thumbnail}" alt="${drama.title}" loading="lazy">
-          <div class="drama-info">
+  // Pastikan element ada
+  if (!dramaListContainer) {
+    console.error("Elemen #drama-list tidak ditemukan di halaman.");
+    return;
+  }
+
+  // Ambil data dari file JSON
+  fetch('data/drama-list.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Gagal memuat data drama');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Bersihkan isi awal
+      dramaListContainer.innerHTML = '';
+
+      if (!Array.isArray(data) || data.length === 0) {
+        dramaListContainer.innerHTML = '<p>Tidak ada drama yang tersedia.</p>';
+        return;
+      }
+
+      // Render setiap drama
+      data.forEach(drama => {
+        const dramaCard = document.createElement('div');
+        dramaCard.classList.add('drama-card');
+
+        dramaCard.innerHTML = `
+          <a href="drama.html?id=${encodeURIComponent(drama.id)}">
+            <img src="${drama.thumbnail}" alt="${drama.title}" loading="lazy">
             <h3>${drama.title}</h3>
             <p>${drama.description}</p>
-            <a href="drama.html?id=${drama.id}" class="watch-button">Lihat Drama</a>
-          </div>
+          </a>
         `;
-        dramaListContainer.appendChild(card);
+
+        dramaListContainer.appendChild(dramaCard);
       });
     })
-    .catch((error) => {
-      console.error("Gagal memuat daftar drama:", error);
-      dramaListContainer.innerHTML = "<p>Gagal memuat drama. Silakan coba lagi nanti.</p>";
+    .catch(error => {
+      console.error(error);
+      dramaListContainer.innerHTML = '<p>Terjadi kesalahan saat memuat daftar drama.</p>';
     });
 });
