@@ -1,8 +1,12 @@
-{
-  "dramas": [
-    {
-      "id": "drama1",
-      "title": "Judul Drama A"
-    }
-  ]
-}
+[
+  {
+    "id": "drama-001",
+    "title": "Legend of Awakening",
+    "thumbnail": "https://via.placeholder.com/300x400?text=Legend+of+Awakening"
+  },
+  {
+    "id": "drama-002",
+    "title": "The Untamed",
+    "thumbnail": "https://via.placeholder.com/300x400?text=The+Untamed"
+  }
+]
