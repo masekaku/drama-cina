@@ -1,9 +1,5 @@
-/* Font Inter Pure */
-html {
-  font-family: 'Inter', sans-serif;
-}
+/* style.css */
 
-/* Reset dasar */
 * {
   margin: 0;
   padding: 0;
@@ -11,128 +7,89 @@ html {
 }
 
 body {
-  background-color: #111;
-  color: #f5f5f5;
+  font-family: 'Inter', sans-serif;
+  background-color: #0d0d0d;
+  color: #ffffff;
   line-height: 1.6;
-  padding: 10px;
+  padding: 20px;
 }
 
-/* Header */
 header {
   text-align: center;
-  padding: 20px 0;
-  background-color: #1a1a1a;
-  border-bottom: 2px solid #ff6600;
+  margin-bottom: 30px;
 }
 
-header h1 {
-  font-size: 1.8rem;
+h1 {
   color: #ff6600;
+  font-size: 2em;
 }
 
-/* Video Container */
-.video-container {
-  margin: 20px auto;
-  max-width: 100%;
-  background-color: #000;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+.drama-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
 }
 
-#mainVideo {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-#loadingMessage {
-  text-align: center;
-  padding: 10px;
-  font-style: italic;
-}
-
-/* Episode List */
-.episode-list {
-  margin-top: 20px;
+.drama-card {
   background-color: #1a1a1a;
   padding: 15px;
-  border-radius: 8px;
-}
-
-.episode-list ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  list-style: none;
-}
-
-#episode-list button {
-  background: orange;
-  color: black;
-  border: none;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 6px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
   cursor: pointer;
+  text-align: center;
 }
 
-#episode-list button:hover {
-  background: #ff9900;
+.drama-card:hover {
+  transform: translateY(-5px);
+  background-color: #262626;
 }
 
-#safelink-overlay {
+.drama-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.drama-card h3 {
+  font-size: 1.1em;
+  color: #ff9900;
+}
+
+/* Safelink Modal */
+.safelink-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background-color: rgba(13, 13, 13, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 999;
 }
 
-#safelink-box {
+.safelink-box {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 320px;
+}
+
+.safelink-box p {
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 1em;
+}
+
+.safelink-ad {
   width: 300px;
   height: 250px;
-  background: white;
-  color: black;
-  text-align: center;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.ads-box {
-  width: 100%;
-  height: 150px;
-  background: #ccc;
-  margin-top: 10px;
+  background-color: #000;
 }
 
 .hidden {
   display: none;
-}
-
-/* Footer */
-footer {
-  margin-top: 30px;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 0.9rem;
-  color: #999;
-}
-
-/* Responsif */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.4rem;
-  }
-
-  .episode-list li button {
-    padding: 6px 10px;
-    font-size: 0.9rem;
-  }
 }
