@@ -3,55 +3,20 @@
     {
       "id": "takbir-cinta",
       "title": "Takbir di Balik Cinta",
+      "source": "https://cdn.videy.co/",
       "episodes": [
-        {
-          "id": "takbir-cinta-ep01",
-          "source": "videy"
-        },
-        {
-          "id": "takbir-cinta-ep02",
-          "source": "videy"
-        },
-        {
-          "id": "takbir-cinta-ep03",
-          "source": "videy"
-        }
+        { "id": "takbir01" },
+        { "id": "takbir02" },
+        { "id": "takbir03" }
       ]
     },
     {
-      "id": "putri-langit",
-      "title": "Putri dari Langit",
+      "id": "rahasia-hati",
+      "title": "Rahasia Hati",
+      "source": "https://qu.ax/",
       "episodes": [
-        {
-          "id": "putri-langit-ep01",
-          "source": "quax"
-        },
-        {
-          "id": "putri-langit-ep02",
-          "source": "quax"
-        }
-      ]
-    },
-    {
-      "id": "pengawal-rahasia",
-      "title": "Pengawal Rahasia Kekaisaran",
-      "episodes": [
-        {
-          "id": "pengawal-rahasia-ep01",
-          "source": "videy"
-        },
-        {
-          "id": "pengawal-rahasia-ep02",
-          "source": "videy"
-        },
-        {
-          "id": "pengawal-rahasia-ep03",
-          "source": "quax"
-        },
-        {
-          "id": "pengawal-rahasia-ep04",
-          "source": "quax"
-        }
+        { "id": "rahasia01" },
+        { "id": "rahasia02" }
       ]
     }
   ]
