@@ -1,12 +1,14 @@
 [
   {
-    "id": "drama-001",
-    "title": "Legend of Awakening",
-    "thumbnail": "https://via.placeholder.com/300x400?text=Legend+of+Awakening"
+    "id": "drama-1",
+    "title": "Putri Istana",
+    "description": "Seorang putri melawan takdirnya di istana kerajaan.",
+    "thumbnail": "https://example.com/thumbs/putri.jpg"
   },
   {
-    "id": "drama-002",
-    "title": "The Untamed",
-    "thumbnail": "https://via.placeholder.com/300x400?text=The+Untamed"
+    "id": "drama-2",
+    "title": "Legenda Pedang Naga",
+    "description": "Seorang pendekar muda mencari pedang legendaris.",
+    "thumbnail": "https://example.com/thumbs/naga.jpg"
   }
 ]
