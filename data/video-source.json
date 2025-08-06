@@ -1,16 +1,12 @@
 {
-  "sources": [
-    { "episodeId": "ep1", "url": "https://qu.ax/cLmDH.mp4" },
-    { "episodeId": "ep2", "url": "https://qu.ax/Aymlk.mp4" },
-    { "episodeId": "ep3", "url": "https://qu.ax/yOpJY.mp4" },
-    { "episodeId": "ep4", "url": "https://qu.ax/maEPb.mp4" },
-    { "episodeId": "ep5", "url": "https://qu.ax/afhWj.mp4" },
-    { "episodeId": "ep6", "url": "https://qu.ax/kHykq.mp4" },
-    { "episodeId": "ep7", "url": "https://qu.ax/iuKnS.mp4" },
-    { "episodeId": "ep8", "url": "https://qu.ax/GhemM.mp4" },
-    { "episodeId": "ep9", "url": "https://qu.ax/epCtN.mp4" },
-    { "episodeId": "ep10", "url": "https://qu.ax/kjpBo.mp4" },
-    { "episodeId": "ep11", "url": "https://qu.ax/xXtSG.mp4" },
-    { "episodeId": "ep12", "url": "https://qu.ax/ClADO.mp4" }
-  ]
+  "drama-001": {
+    "ep1": "https://qu.ax/cLmDH.mp4",
+    "ep2": "https://qu.ax/Aymlk.mp4",
+    "ep3": "https://qu.ax/yOpJY.mp4"
+  },
+  "drama-002": {
+    "ep1": "https://qu.ax/maEPb.mp4",
+    "ep2": "https://qu.ax/afhWj.mp4",
+    "ep3": "https://qu.ax/kHykq.mp4"
+  }
 }
