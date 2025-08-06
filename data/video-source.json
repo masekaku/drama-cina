@@ -1,12 +1,5 @@
-{
-  "drama-001": {
-    "ep1": "https://qu.ax/cLmDH.mp4",
-    "ep2": "https://qu.ax/Aymlk.mp4",
-    "ep3": "https://qu.ax/yOpJY.mp4"
-  },
-  "drama-002": {
-    "ep1": "https://qu.ax/maEPb.mp4",
-    "ep2": "https://qu.ax/afhWj.mp4",
-    "ep3": "https://qu.ax/kHykq.mp4"
-  }
-}
+[
+  { "id": "vid001", "url": "https://qu.ax/cLmDH.mp4" },
+  { "id": "vid002", "url": "https://qu.ax/Aymlk.mp4" },
+  { "id": "vid003", "url": "https://qu.ax/yOpJY.mp4" }
+]
