@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drama Cina</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Drama</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="container">
-    <h1 id="drama-title"></h1>
-    <video id="video-player" controls></video>
+  <header>
+    <h1 id="dramaTitle">Memuat...</h1>
+  </header>
 
-    <div id="episode-list"></div>
+  <main>
+    <div class="video-container">
+      <video id="videoPlayer" controls width="100%" poster="" preload="none">
+        <source id="videoSource" src="" type="video/mp4" />
+        Browser tidak mendukung video.
+      </video>
+    </div>
 
-    <!-- Safelink Overlay -->
-    <div id="safelink-overlay" class="hidden">
-      <div id="safelink-box">
-        <p>Tunggu <span id="safelink-countdown">5</span> detik...</p>
-        <div class="ads-box">[IKLAN DI SINI]</div>
+    <div id="episodeList" class="episode-list"></div>
+  </main>
+
+  <div id="safelinkModal" class="safelink-modal hidden">
+    <div class="safelink-box">
+      <p>Tunggu <span id="safelinkCountdown">5</span> detik...</p>
+      <div class="safelink-ad">
+        <iframe src="https://masekaku.github.io/apa-itu-2025/" width="300" height="250" style="border:0;" loading="lazy"></iframe>
       </div>
     </div>
   </div>
