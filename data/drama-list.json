@@ -1,14 +1,7 @@
 [
   {
-    "id": "drama-1",
-    "title": "Putri Istana",
-    "description": "Seorang putri melawan takdirnya di istana kerajaan.",
-    "thumbnail": "https://example.com/thumbs/putri.jpg"
-  },
-  {
-    "id": "drama-2",
-    "title": "Legenda Pedang Naga",
-    "description": "Seorang pendekar muda mencari pedang legendaris.",
-    "thumbnail": "https://example.com/thumbs/naga.jpg"
+    "id": "drama1",
+    "title": "Putri Duyung Abadi",
+    "thumbnail": "https://via.placeholder.com/300x400?text=Putri+Duyung"
   }
 ]
