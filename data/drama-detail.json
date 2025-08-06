@@ -3,20 +3,21 @@
     {
       "id": "takbir-cinta",
       "title": "Takbir di Balik Cinta",
-      "source": "https://cdn.videy.co/",
+      "source": "quax",
       "episodes": [
-        { "id": "takbir01" },
-        { "id": "takbir02" },
-        { "id": "takbir03" }
+        { "id": "abc123" },
+        { "id": "def456" },
+        { "id": "ghi789" }
       ]
     },
     {
-      "id": "janji-merah",
-      "title": "Janji Merah",
-      "source": "https://qu.ax/",
+      "id": "mata-hati",
+      "title": "Mata Hati",
+      "source": "videy",
       "episodes": [
-        { "id": "janji01" },
-        { "id": "janji02" }
+        { "id": "vid001" },
+        { "id": "vid002" },
+        { "id": "vid003" }
       ]
     }
   ]
