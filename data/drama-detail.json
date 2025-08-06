@@ -1,20 +1,11 @@
-{
-  "drama-001": {
-    "title": "Legend of Awakening",
-    "description": "A story of young heroes in a fantasy world.",
+[
+  {
+    "id": "drama1",
+    "title": "Putri Duyung Abadi",
     "episodes": [
-      { "id": "ep1", "title": "Episode 1" },
-      { "id": "ep2", "title": "Episode 2" },
-      { "id": "ep3", "title": "Episode 3" }
-    ]
-  },
-  "drama-002": {
-    "title": "The Untamed",
-    "description": "Two soulmates fight evil spirits and uncover a dark conspiracy.",
-    "episodes": [
-      { "id": "ep1", "title": "Episode 1" },
-      { "id": "ep2", "title": "Episode 2" },
-      { "id": "ep3", "title": "Episode 3" }
+      { "episode": 1, "videoId": "vid001" },
+      { "episode": 2, "videoId": "vid002" },
+      { "episode": 3, "videoId": "vid003" }
     ]
   }
-}
+]
