@@ -13,10 +13,10 @@ header {
   background-color: #000;
   color: #ff6b00;
   text-align: center;
-  padding: 1rem 0 0.8rem 0;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-bottom: 2px solid #ff6b00;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+  border-bottom: 1px solid #ff6b00;
 }
 
 /* Video Container */
