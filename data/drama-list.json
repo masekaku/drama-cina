@@ -1,24 +1,8 @@
 {
   "dramas": [
     {
-      "id": "falling_into_your_smile",
-      "title": "Falling Into Your Smile"
-    },
-    {
-      "id": "go_go_squid",
-      "title": "Go Go Squid!"
-    },
-    {
-      "id": "love_between_fairy_and_devil",
-      "title": "Love Between Fairy and Devil"
-    },
-    {
-      "id": "the_rising_dragon",
-      "title": "The Rising Dragon"
-    },
-    {
-      "id": "legend_of_white_snake",
-      "title": "Legend of the White Snake"
+      "id": "drama1",
+      "title": "Judul Drama A"
     }
   ]
 }
