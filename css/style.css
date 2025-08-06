@@ -7,22 +7,30 @@ body {
 }
 
 header {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   background-color: #ff6b00;
   color: white;
   text-align: center;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  header {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
 }
 
 .drama-list, .episode-list {
   padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
 }
 
 .drama-item, .episode-button {
-  background-color: #222;
-  border: 1px solid #444;
+  background-color: #1c1c1c;
+  border: 1px solid #ff6b00;
   padding: 0.5rem;
   text-align: center;
   cursor: pointer;
@@ -31,7 +39,7 @@ header {
 }
 
 .drama-item:hover, .episode-button:hover {
-  background-color: #333;
+  background-color: #2a2a2a;
 }
 
 .video-container {
@@ -43,7 +51,7 @@ header {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,4 +68,22 @@ header {
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
+  max-width: 320px;
+}
+
+.safelink-ad iframe {
+  width: 300px;
+  height: 250px;
+  border: 0;
+}
+
+@media (max-width: 400px) {
+  .safelink-box {
+    transform: scale(0.9);
+  }
+
+  .safelink-ad iframe {
+    width: 250px;
+    height: 200px;
+  }
 }
