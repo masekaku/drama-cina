@@ -11,12 +11,25 @@ body {
 /* Header */
 header {
   background-color: #000;
-  color: #ff6b00;
   text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 2.4rem;
-  border-bottom: 1px solid #ff6b00;
+  padding: 0.5rem 1rem 0 1rem;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  color: #FFA500; /* orange terang */
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+header::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #FFA500;
+  margin: 0.4rem auto 0 auto;
+  width: 100%;
 }
 
 /* Video Container */
