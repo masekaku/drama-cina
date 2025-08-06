@@ -1,46 +1,61 @@
-// js/drama.js document.addEventListener("DOMContentLoaded", function () { const titleEl = document.getElementById("dramaTitle"); const videoEl = document.getElementById("mainVideo"); const episodeListEl = document.getElementById("episodeList"); const loadingMessage = document.getElementById("loadingMessage");
+// js/drama.js
+document.addEventListener('DOMContentLoaded', function () {
+  const params = new URLSearchParams(window.location.search);
+  const dramaId = params.get('id');
 
-const baseUrls = { videy: "https://cdn.videy.co/", quax: "https://qu.ax/" };
+  const titleElement = document.getElementById('dramaTitle');
+  const videoElement = document.getElementById('mainVideo');
+  const loadingMessage = document.getElementById('loadingMessage');
+  const episodeList = document.getElementById('episodeItems');
 
-const params = new URLSearchParams(window.location.search); const dramaId = params.get("id");
-
-if (!dramaId) { titleEl.textContent = "Drama tidak ditemukan."; return; }
-
-fetch("./data/drama-detail.json") .then((res) => res.json()) .then((data) => { const drama = data.dramas.find((d) => d.id === dramaId);
-
-if (!drama) {
-    titleEl.textContent = "Drama tidak ditemukan.";
+  if (!dramaId) {
+    titleElement.textContent = 'Drama tidak ditemukan';
     return;
   }
 
-  titleEl.textContent = drama.title;
+  fetch('./data/drama-detail.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Gagal mengambil data JSON');
+      }
+      return response.json();
+    })
+    .then(data => {
+      const drama = data.dramas.find(d => d.id === dramaId);
 
-  // Tampilkan episode
-  drama.episodes.forEach((episode, index) => {
-    const btn = document.createElement("button");
-    btn.textContent = (index + 1).toString().padStart(2, "0");
-    btn.addEventListener("click", () => {
-      const videoUrl = (baseUrls[episode.source] || baseUrls.videy) + episode.id + ".mp4";
-      videoEl.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
-      videoEl.load();
+      if (!drama) {
+        titleElement.textContent = 'Drama tidak ditemukan';
+        return;
+      }
+
+      titleElement.textContent = drama.title;
+
+      if (drama.episodes && drama.episodes.length > 0) {
+        const firstEpisode = drama.episodes[0];
+        const videoUrl = drama.source + firstEpisode.id + '.mp4';
+
+        videoElement.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
+        videoElement.load();
+        loadingMessage.style.display = 'none';
+
+        drama.episodes.forEach((ep, idx) => {
+          const li = document.createElement('li');
+          const btn = document.createElement('button');
+          btn.textContent = String(idx + 1).padStart(2, '0');
+          btn.onclick = () => {
+            const newUrl = drama.source + ep.id + '.mp4';
+            videoElement.querySelector('source').src = newUrl;
+            videoElement.load();
+          };
+          li.appendChild(btn);
+          episodeList.appendChild(li);
+        });
+      } else {
+        loadingMessage.textContent = 'Episode tidak tersedia';
+      }
+    })
+    .catch(error => {
+      console.error('Gagal memuat detail drama:', error);
+      titleElement.textContent = 'Gagal memuat detail drama';
     });
-    episodeListEl.appendChild(btn);
-  });
-
-  // Load episode pertama otomatis
-  if (drama.episodes.length > 0) {
-    const first = drama.episodes[0];
-    const videoUrl = (baseUrls[first.source] || baseUrls.videy) + first.id + ".mp4";
-    videoEl.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
-    videoEl.load();
-  }
-
-  loadingMessage.style.display = "none";
-})
-.catch((err) => {
-  console.error("Gagal memuat detail drama:", err);
-  titleEl.textContent = "Gagal memuat detail drama.";
 });
-
-});
-
