@@ -68,19 +68,52 @@ header h1 {
   list-style: none;
 }
 
-.episode-list li button {
-  background-color: #333;
-  color: #ff6600;
-  border: 1px solid #ff6600;
-  padding: 8px 14px;
+#episode-list button {
+  background: orange;
+  color: black;
+  border: none;
+  padding: 10px;
+  margin: 5px;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
-.episode-list li button:hover {
-  background-color: #ff6600;
-  color: #fff;
+#episode-list button:hover {
+  background: #ff9900;
+}
+
+#safelink-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#safelink-box {
+  width: 300px;
+  height: 250px;
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.ads-box {
+  width: 100%;
+  height: 150px;
+  background: #ccc;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Footer */
