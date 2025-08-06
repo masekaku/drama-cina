@@ -1,39 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const dramaListContainer = document.getElementById('dramaList');
-
   fetch('./data/drama-list.json')
-    .then(response => {
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
-      if (!data.dramas || data.dramas.length === 0) {
-        dramaListContainer.innerHTML = '<p>Tidak ada drama tersedia.</p>';
-        return;
-      }
-
+      const dramaListContainer = document.getElementById('dramaList');
       data.dramas.forEach(drama => {
-        const card = document.createElement('div');
-        card.className = 'drama-card';
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `drama.html?id=${drama.id}`;
+        a.textContent = drama.title;
+        a.style.color = '#ff6600';
+        a.style.textDecoration = 'none';
 
-        const link = document.createElement('a');
-        link.href = `./drama.html?id=${encodeURIComponent(drama.id)}`;
+        a.onmouseover = () => a.style.textDecoration = 'underline';
+        a.onmouseout = () => a.style.textDecoration = 'none';
 
-        const img = document.createElement('img');
-        img.src = drama.thumbnail || 'https://via.placeholder.com/300x450?text=No+Image';
-        img.alt = drama.title;
-
-        const title = document.createElement('h3');
-        title.textContent = drama.title;
-
-        link.appendChild(img);
-        link.appendChild(title);
-        card.appendChild(link);
-        dramaListContainer.appendChild(card);
+        li.appendChild(a);
+        dramaListContainer.appendChild(li);
       });
     })
-    .catch(err => {
-      console.error('Gagal memuat daftar drama:', err);
-      dramaListContainer.innerHTML = '<p>Gagal memuat data drama.</p>';
+    .catch(error => {
+      console.error('Gagal memuat daftar drama:', error);
+      const container = document.getElementById('dramaList');
+      container.innerHTML = '<li>Gagal memuat daftar drama.</li>';
     });
 });
