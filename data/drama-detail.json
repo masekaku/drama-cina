@@ -5,18 +5,26 @@
       "title": "Takbir di Balik Cinta",
       "source": "https://cdn.videy.co/",
       "episodes": [
-        { "id": "takbir01" },
-        { "id": "takbir02" },
-        { "id": "takbir03" }
+        { "id": "takbir-ep01" },
+        { "id": "takbir-ep02" },
+        { "id": "takbir-ep03" }
       ]
     },
     {
-      "id": "rahasia-hati",
-      "title": "Rahasia Hati",
+      "id": "pelangi-rasa",
+      "title": "Pelangi Rasa",
       "source": "https://qu.ax/",
       "episodes": [
-        { "id": "rahasia01" },
-        { "id": "rahasia02" }
+        { "id": "pelangi-ep01" },
+        { "id": "pelangi-ep02" }
+      ]
+    },
+    {
+      "id": "bayangan-hati",
+      "title": "Bayangan Hati",
+      "source": "https://cdn.videy.co/",
+      "episodes": [
+        { "id": "bayangan-ep01" }
       ]
     }
   ]
