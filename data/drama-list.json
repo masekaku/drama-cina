@@ -1,0 +1,20 @@
+// data/drama-list.json
+{
+  "dramas": [
+    {
+      "id": "takbir-cinta",
+      "title": "Takbir di Balik Cinta",
+      "thumbnail": "https://via.placeholder.com/300x400?text=Takbir+Cinta"
+    },
+    {
+      "id": "putri-langit",
+      "title": "Putri dari Langit",
+      "thumbnail": "https://via.placeholder.com/300x400?text=Putri+Langit"
+    },
+    {
+      "id": "pengawal-rahasia",
+      "title": "Pengawal Rahasia Kekaisaran",
+      "thumbnail": "https://via.placeholder.com/300x400?text=Pengawal+Rahasia"
+    }
+  ]
+}
