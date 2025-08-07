@@ -40,8 +40,8 @@ header::after {
 
 .video-watermark {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 15px;
+  right: 15px;
   z-index: 10;
   width: 90px; /* Atur sesuai ukuran logo kamu */
   opacity: 0.95;
